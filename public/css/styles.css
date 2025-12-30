@@ -54,3 +54,11 @@
     align-items: center;
     flex-direction: column;
 }
+
+.task-list {
+ 
+}
+
+.actions {
+    display: flex;
+}

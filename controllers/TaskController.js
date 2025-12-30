@@ -39,6 +39,11 @@ class TaskController {
 
 
     static async updateTask(req, res) {
+
+    }
+
+
+    static async updateTaskSave(req, res) {
         const id = req.body.id
 
         const updatedTask = {
@@ -57,11 +62,11 @@ class TaskController {
 
 
     static async deleteTask(req, res) {
-        const id = req.params.id
+        const id = req.body.id
 
         try {
             await Task.destroy({where: {id: id}})
-            res.status(200).json({message: 'User has been deleted'}).redirect('/tasks')
+            res.status(200).redirect('/tasks')
         } catch(error) {
             console.error(error)
             res.status(500).json({message: 'An error occurred, try again'})
