@@ -16,7 +16,11 @@ app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 
 app.use((req, res, next) => {
-    res.status(404).send('Content not found')
+    res.status(404).send(`
+        <h1>Page Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
+        <a href="/tasks">Go back to Home</a>
+        `)
 })
 
 
