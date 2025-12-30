@@ -14,6 +14,11 @@ class TaskController {
 
 
     static async createTask(req, res) {
+        res.render('tasks/create')
+    }
+
+
+    static async createTaskSave(req, res) {
         const { title, description } = req.body
   
 
@@ -24,8 +29,8 @@ class TaskController {
         }
 
         try {
-            const task = await Task.create(newTask)
-            res.status(201).json({message: 'New task has been created', task: task}).redirect('/tasks')
+            await Task.create(newTask)
+            res.status(201).redirect('/tasks')
         } catch (error) {
             console.error(error)
             res.status(500).json({message: 'An error occurred, try again'})
