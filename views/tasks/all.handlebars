@@ -2,19 +2,28 @@
 <ul class="task-list">
     {{#each tasks}}
     <li>
-        <p>{{this.title}} </p>
-        <p>{{this.description}}</p>
-    </li>
-    <div class="actions">
-        <a href=""><i class="bi bi-check2"></i></a>
-        <a href=""><i class="bi bi-pencil-square"></i></a>
-        <form action="/tasks/delete" method="post">
-            <input type="hidden" name="id" value="{{this.id}}">
-            <button type="submit">
-                <i class="bi bi-trash3-fill"></i> 
-            </button>
-        </form>
+        {{#if this.done}}
+            <a href="/tasks/edit/{{this.id}}" class="title done">{{this.title}}</a>
+        {{else}}
+            <a href="/tasks/edit/{{this.id}}" class="title">{{this.title}}</a>
+        {{/if}}
+        <div class="actions">
+            <form action="/tasks/toggleStatus" method="post">
+                <input type="hidden" name="id" value="{{this.id}}">
+                <input type="hidden" name="done" value="{{this.done}}">
+                <button>
+                    <i class="bi bi-check2"></i>
+                </button>
+            </form>
+            <a href="/tasks/edit/{{this.id}}"><i class="bi bi-pencil-square"></i></a>
+            <form action="/tasks/delete" method="post">
+                <input type="hidden" name="id" value="{{this.id}}">
+                <button type="submit">
+                    <i class="bi bi-trash3-fill"></i> 
+                </button>
+            </form>
 
-    </div>
+        </div>
+    </li>
     {{/each}}
 </ul>
