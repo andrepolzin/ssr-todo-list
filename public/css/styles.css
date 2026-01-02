@@ -129,9 +129,9 @@ body {
     font-size: 1.2em;
 }
 
-.title .done {
+.task-list .done {
     text-decoration: line-through;
-    color: #25da25;
+    color: #769c76;
 }
 
 .task-list .title:hover {
