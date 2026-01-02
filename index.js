@@ -4,7 +4,7 @@ import taskRoutes from './routes/taskRoutes.js'
 import { engine } from 'express-handlebars';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 
 app.use(express.json())
