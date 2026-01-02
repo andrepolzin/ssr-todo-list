@@ -53,7 +53,7 @@ class TaskController {
 
 
     static async updateTaskSave(req, res) {
-        console.log('dentro de updateTaskSave')
+        // console.log('inside  updateTaskSave')
         const { id, title, description, done } = req.body
 
         const updatedTask = {
@@ -62,7 +62,7 @@ class TaskController {
             done: done === '1' ? true : false
         }
 
-        console.log(updatedTask, id)
+        // console.log(updatedTask, id)
 
         try {
             await Task.update(updatedTask, {where: {id: id}})
